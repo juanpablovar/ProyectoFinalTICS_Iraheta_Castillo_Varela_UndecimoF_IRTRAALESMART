@@ -4,26 +4,475 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Proyecto Final</title>
+    <title>Guardian IRTRA | Sistema de Seguridad</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>Mi Landing Page</h1>
-        <p>Bienvenido a mi proyecto final de TIC</p>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">
+            <span>●</span> GUARDIAN IRTRA
+        </div>
+
+        <div class="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#problematica">Problemática</a>
+            <a href="#solucion">Solución</a>
+            <a href="#funcionamiento">Funcionamiento</a>
+            <a href="#equipo">Equipo</a>
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+    <header id="inicio" class="hero">
+
+        <div class="hero-content">
+
+            <div class="status">
+                <span class="status-dot"></span>
+                SISTEMA DE PROTECCIÓN ACTIVO
+            </div>
+
+            <h1>
+                Guardian
+                <span>IRTRA</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                Sistema inteligente de detección para prevenir
+                el retiro no autorizado de objetos.
+            </p>
+
+            <p class="hero-description">
+                Un proyecto desarrollado mediante Arduino y Tinkercad
+                que combina detección de distancia y movimiento para
+                generar una alerta visual y sonora.
+            </p>
+
+            <a href="#funcionamiento" class="main-button">
+                Conocer el sistema →
+            </a>
+
+        </div>
+
+        <div class="hero-visual">
+
+            <div class="radar">
+
+                <div class="radar-circle circle-1"></div>
+                <div class="radar-circle circle-2"></div>
+                <div class="radar-circle circle-3"></div>
+
+                <div class="radar-line"></div>
+
+                <div class="radar-center">
+                    <span>60</span>
+                    <small>CM</small>
+                </div>
+
+            </div>
+
+            <div class="object">
+                <div class="object-icon">◈</div>
+                <p>OBJETO<br>PROTEGIDO</p>
+            </div>
+
+        </div>
+
     </header>
 
-    <main>
-        <section>
-            <h2>Sobre nuestro proyecto</h2>
+
+    <!-- PROBLEMÁTICA -->
+    <section id="problematica" class="section problem-section">
+
+        <div class="section-title">
+            <span>01 / PROBLEMÁTICA</span>
+            <h2>¿Qué problema buscamos solucionar?</h2>
+        </div>
+
+        <div class="problem-grid">
+
+            <div class="problem-text">
+
+                <p>
+                    En lugares recreativos como el IRTRA existen diferentes
+                    objetos, equipos y recursos que pueden quedar expuestos
+                    al retiro o manipulación no autorizada.
+                </p>
+
+                <p>
+                    Nuestro proyecto propone utilizar un circuito electrónico
+                    capaz de detectar una situación potencialmente sospechosa
+                    y generar una alerta inmediata.
+                </p>
+
+            </div>
+
+            <div class="warning-card">
+
+                <div class="warning-icon">!</div>
+
+                <div>
+                    <h3>RIESGO DETECTADO</h3>
+                    <p>
+                        Un objeto puede ser retirado de su zona de protección
+                        sin que exista una alerta inmediata.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOLUCIÓN -->
+    <section id="solucion" class="section solution-section">
+
+        <div class="section-title center">
+            <span>02 / NUESTRA SOLUCIÓN</span>
+            <h2>Un sistema de protección inteligente</h2>
+
             <p>
-                Esta es una página web creada utilizando HTML, CSS y JavaScript.
+                Guardian IRTRA utiliza diferentes componentes electrónicos
+                para analizar lo que ocurre alrededor de un objeto protegido.
             </p>
-        </section>
-    </main>
+        </div>
+
+        <div class="features">
+
+            <div class="feature-card">
+                <div class="feature-number">01</div>
+                <div class="feature-icon">📏</div>
+                <h3>Distancia</h3>
+                <p>
+                    El sistema establece una zona de protección de
+                    <strong>60 centímetros</strong>.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-number">02</div>
+                <div class="feature-icon">◉</div>
+                <h3>Movimiento</h3>
+                <p>
+                    Cuando se detecta movimiento dentro de la zona,
+                    el sistema activa la alarma.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-number">03</div>
+                <div class="feature-icon">🔴</div>
+                <h3>Alerta visual</h3>
+                <p>
+                    Una luz LED roja indica que existe una situación
+                    que requiere atención.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-number">04</div>
+                <div class="feature-icon">🔊</div>
+                <h3>Alarma sonora</h3>
+                <p>
+                    El piezoeléctrico produce un sonido cuando se
+                    detecta movimiento dentro del rango establecido.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FUNCIONAMIENTO -->
+    <section id="funcionamiento" class="section functioning-section">
+
+        <div class="section-title">
+            <span>03 / FUNCIONAMIENTO</span>
+            <h2>¿Cómo funciona?</h2>
+        </div>
+
+        <div class="system">
+
+            <div class="system-step">
+                <div class="step-number">01</div>
+
+                <div class="step-content">
+                    <h3>Zona de protección</h3>
+                    <p>
+                        El circuito establece una distancia máxima
+                        de 60 cm alrededor del objeto protegido.
+                    </p>
+                </div>
+            </div>
+
+            <div class="connector"></div>
+
+            <div class="system-step">
+                <div class="step-number">02</div>
+
+                <div class="step-content">
+                    <h3>Detección de proximidad</h3>
+                    <p>
+                        Cuando una persona u objeto entra en el rango
+                        de 60 cm o menos, se enciende el LED rojo.
+                    </p>
+                </div>
+            </div>
+
+            <div class="connector"></div>
+
+            <div class="system-step">
+                <div class="step-number">03</div>
+
+                <div class="step-content">
+                    <h3>Detección de movimiento</h3>
+                    <p>
+                        Si además se detecta movimiento dentro de esa
+                        zona, el sistema interpreta la situación como
+                        una posible manipulación.
+                    </p>
+                </div>
+            </div>
+
+            <div class="connector"></div>
+
+            <div class="system-step alert-step">
+                <div class="step-number">04</div>
+
+                <div class="step-content">
+                    <h3>Alarma activada</h3>
+                    <p>
+                        El piezoeléctrico comienza a sonar para generar
+                        una alerta sonora y llamar la atención sobre
+                        la situación.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SIMULADOR -->
+    <section class="section simulator-section">
+
+        <div class="section-title center">
+            <span>04 / SIMULACIÓN</span>
+            <h2>Panel de monitoreo</h2>
+
+            <p>
+                Esta representación muestra de manera visual las condiciones
+                en las que nuestro sistema genera una alerta.
+            </p>
+        </div>
+
+        <div class="monitor">
+
+            <div class="monitor-header">
+                <span>GUARDIAN IRTRA // MONITOR</span>
+                <span id="system-time">00:00:00</span>
+            </div>
+
+            <div class="monitor-content">
+
+                <div class="monitor-distance">
+
+                    <span>DISTANCIA DETECTADA</span>
+
+                    <div class="distance-value">
+                        <span id="distance">75</span>
+                        <small>CM</small>
+                    </div>
+
+                    <div class="distance-bar">
+                        <div id="distance-fill"></div>
+                    </div>
+
+                </div>
+
+                <div class="monitor-status">
+
+                    <div class="status-item">
+                        <span class="indicator green" id="distance-light"></span>
+                        <div>
+                            <strong>DISTANCIA</strong>
+                            <small id="distance-status">ZONA SEGURA</small>
+                        </div>
+                    </div>
+
+                    <div class="status-item">
+                        <span class="indicator green" id="motion-light"></span>
+                        <div>
+                            <strong>MOVIMIENTO</strong>
+                            <small id="motion-status">NO DETECTADO</small>
+                        </div>
+                    </div>
+
+                    <div class="status-item">
+                        <span class="indicator green" id="alarm-light"></span>
+                        <div>
+                            <strong>ALARMA</strong>
+                            <small id="alarm-status">INACTIVA</small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="monitor-controls">
+
+                <label for="distance-slider">
+                    Simular distancia
+                </label>
+
+                <input
+                    type="range"
+                    id="distance-slider"
+                    min="10"
+                    max="100"
+                    value="75"
+                >
+
+                <button id="motion-button">
+                    Simular movimiento
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TECNOLOGÍA -->
+    <section class="section technology-section">
+
+        <div class="section-title">
+            <span>05 / TECNOLOGÍA</span>
+            <h2>¿Con qué fue desarrollado?</h2>
+        </div>
+
+        <div class="technology-grid">
+
+            <div class="technology-card">
+                <h3>Arduino</h3>
+                <p>
+                    Microcontrolador encargado de procesar las señales
+                    recibidas por los sensores y controlar las alertas.
+                </p>
+            </div>
+
+            <div class="technology-card">
+                <h3>Tinkercad</h3>
+                <p>
+                    Plataforma utilizada para construir y simular
+                    nuestro circuito electrónico antes de su implementación.
+                </p>
+            </div>
+
+            <div class="technology-card">
+                <h3>Sensor de distancia</h3>
+                <p>
+                    Permite establecer y controlar el rango de protección
+                    de 60 centímetros.
+                </p>
+            </div>
+
+            <div class="technology-card">
+                <h3>Sensor de movimiento</h3>
+                <p>
+                    Permite detectar movimiento dentro del área
+                    previamente establecida.
+                </p>
+            </div>
+
+            <div class="technology-card">
+                <h3>LED rojo</h3>
+                <p>
+                    Funciona como señal visual cuando una persona u objeto
+                    entra en la zona de alerta.
+                </p>
+            </div>
+
+            <div class="technology-card">
+                <h3>Piezoeléctrico</h3>
+                <p>
+                    Genera la alerta sonora cuando se detecta movimiento
+                    dentro del rango de protección.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EQUIPO -->
+    <section id="equipo" class="section team-section">
+
+        <div class="section-title center">
+            <span>06 / NUESTRO EQUIPO</span>
+            <h2>Integrantes del proyecto</h2>
+        </div>
+
+        <div class="team">
+
+            <div class="member">
+                <div class="member-number">01</div>
+                <h3>Faustino Iraheta</h3>
+                <p>Integrante</p>
+            </div>
+
+            <div class="member">
+                <div class="member-number">02</div>
+                <h3>Gabriela Castillo</h3>
+                <p>Integrante</p>
+            </div>
+
+            <div class="member">
+                <div class="member-number">03</div>
+                <h3>Juan Pablo Varela</h3>
+                <p>Integrante</p>
+            </div>
+
+        </div>
+
+        <div class="academic-info">
+            <span>UNDÉCIMO F</span>
+            <span>•</span>
+            <span>PROYECTO FINAL TICS</span>
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-logo">
+            GUARDIAN <span>IRTRA</span>
+        </div>
+
+        <p>
+            Proyecto Final de TICS · Undécimo F
+        </p>
+
+        <p class="copyright">
+            Sistema desarrollado con fines educativos.
+        </p>
+
+    </footer>
+
 
     <script src="script.js"></script>
 
