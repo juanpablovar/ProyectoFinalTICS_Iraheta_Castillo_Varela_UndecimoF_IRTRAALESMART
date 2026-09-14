@@ -1,8 +1,3 @@
-/* =========================
-   GUARDIAN IRTRA
-   SIMULADOR DE MONITOREO
-========================= */
-
 const distanceSlider = document.getElementById("distance-slider");
 
 const distanceDisplay = document.getElementById("distance");
@@ -18,150 +13,180 @@ const alarmStatus = document.getElementById("alarm-status");
 
 const motionButton = document.getElementById("motion-button");
 
+const menuButton = document.getElementById("menu-button");
+const navLinks = document.getElementById("nav-links");
+
 let motionDetected = false;
 
 
-/* =========================
-   ACTUALIZAR DISTANCIA
-========================= */
+/* CAMBIAR COLOR DE LOS INDICADORES */
 
-function updateDistance() {
+function setAlert(element, active) {
 
-    const distance = Number(distanceSlider.value);
-
-    distanceDisplay.textContent = distance;
-
-    /*
-        Mientras menor sea la distancia,
-        mayor será el porcentaje de la barra.
-    */
-
-    const percentage = 100 - ((distance - 10) / 90) * 100;
-
-    distanceFill.style.width = `${percentage}%`;
-
-
-    /*
-        Si está a 60 cm o menos,
-        se activa la alerta visual.
-    */
-
-    if (distance <= 60) {
-
-        distanceLight.classList.remove("green");
-        distanceLight.classList.add("red");
-
-        distanceStatus.textContent = "ZONA DE ALERTA";
-
-        distanceDisplay.style.color = "#ff3030";
-        distanceFill.style.background = "#ff3030";
-
-        /*
-            Si también existe movimiento,
-            se activa la alarma.
-        */
-
-        if (motionDetected) {
-
-            alarmLight.classList.remove("green");
-            alarmLight.classList.add("red");
-
-            alarmStatus.textContent = "ALARMA ACTIVA";
-
-        }
-
-    } else {
-
-        distanceLight.classList.remove("red");
-        distanceLight.classList.add("green");
-
-        distanceStatus.textContent = "ZONA SEGURA";
-
-        distanceDisplay.style.color = "#42dc76";
-        distanceFill.style.background = "#42dc76";
-
-        alarmLight.classList.remove("red");
-        alarmLight.classList.add("green");
-
-        alarmStatus.textContent = "INACTIVA";
-    }
+    element.classList.toggle("alert", active);
 
 }
 
 
-/* =========================
-   SIMULAR MOVIMIENTO
-========================= */
+/* ACTUALIZAR EL SIMULADOR */
+
+function updateSystem() {
+
+    const distance = Number(distanceSlider.value);
+
+    const proximityAlert = distance <= 60;
+    const alarmActive = proximityAlert && motionDetected;
+
+    const percentage =
+        100 - ((distance - 10) / 90) * 100;
+
+
+    distanceDisplay.textContent = distance;
+
+    distanceFill.style.width =
+        `${percentage}%`;
+
+
+    if (proximityAlert) {
+
+        distanceDisplay.style.color = "#ff3838";
+        distanceFill.style.background = "#ff3838";
+
+    } else {
+
+        distanceDisplay.style.color = "#43db7b";
+        distanceFill.style.background = "#43db7b";
+
+    }
+
+
+    setAlert(distanceLight, proximityAlert);
+    setAlert(motionLight, motionDetected);
+    setAlert(alarmLight, alarmActive);
+
+
+    distanceStatus.textContent =
+        proximityAlert
+            ? "ZONA DE ALERTA"
+            : "ZONA SEGURA";
+
+
+    motionStatus.textContent =
+        motionDetected
+            ? "MOVIMIENTO DETECTADO"
+            : "NO DETECTADO";
+
+
+    alarmStatus.textContent =
+        alarmActive
+            ? "ALARMA ACTIVA"
+            : "INACTIVA";
+
+}
+
+
+/* BOTÓN PARA SIMULAR MOVIMIENTO */
 
 motionButton.addEventListener("click", function () {
 
     motionDetected = !motionDetected;
 
+
     if (motionDetected) {
 
-        motionButton.textContent = "Detener movimiento";
+        motionButton.textContent =
+            "Detener movimiento";
 
-        motionLight.classList.remove("green");
-        motionLight.classList.add("red");
-
-        motionStatus.textContent = "MOVIMIENTO DETECTADO";
-
-        /*
-            La alarma solo se activa si el movimiento
-            ocurre dentro de los 60 cm.
-        */
-
-        if (Number(distanceSlider.value) <= 60) {
-
-            alarmLight.classList.remove("green");
-            alarmLight.classList.add("red");
-
-            alarmStatus.textContent = "ALARMA ACTIVA";
-
-        }
+        motionButton.classList.add("active");
 
     } else {
 
-        motionButton.textContent = "Simular movimiento";
+        motionButton.textContent =
+            "Simular movimiento";
 
-        motionLight.classList.remove("red");
-        motionLight.classList.add("green");
+        motionButton.classList.remove("active");
 
-        motionStatus.textContent = "NO DETECTADO";
-
-        alarmLight.classList.remove("red");
-        alarmLight.classList.add("green");
-
-        alarmStatus.textContent = "INACTIVA";
     }
+
+
+    updateSystem();
 
 });
 
 
-/* =========================
-   CAMBIO DE DISTANCIA
-========================= */
+/* CONTROL DE DISTANCIA */
 
-distanceSlider.addEventListener("input", updateDistance);
+distanceSlider.addEventListener(
+    "input",
+    updateSystem
+);
 
 
-/* =========================
-   RELOJ DEL SISTEMA
-========================= */
+/* RELOJ DEL MONITOR */
 
 function updateClock() {
 
     const now = new Date();
 
-    const hours = String(now.getHours()).padStart(2, "0");
-    const minutes = String(now.getMinutes()).padStart(2, "0");
-    const seconds = String(now.getSeconds()).padStart(2, "0");
+    const formattedTime =
+        now.toLocaleTimeString("es-GT", {
 
-    document.getElementById("system-time").textContent =
-        `${hours}:${minutes}:${seconds}`;
+            hour12: false,
+
+            hour: "2-digit",
+
+            minute: "2-digit",
+
+            second: "2-digit"
+
+        });
+
+
+    document.getElementById(
+        "system-time"
+    ).textContent = formattedTime;
+
 }
+
+
+/* MENÚ PARA TELÉFONOS */
+
+menuButton.addEventListener("click", function () {
+
+    const open =
+        navLinks.classList.toggle("open");
+
+    menuButton.setAttribute(
+        "aria-expanded",
+        String(open)
+    );
+
+});
+
+
+/* CERRAR MENÚ AL SELECCIONAR UNA SECCIÓN */
+
+navLinks
+    .querySelectorAll("a")
+    .forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            navLinks.classList.remove("open");
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        });
+
+    });
+
+
+/* INICIAR LA PÁGINA */
 
 setInterval(updateClock, 1000);
 
 updateClock();
-updateDistance();
+updateSystem();
