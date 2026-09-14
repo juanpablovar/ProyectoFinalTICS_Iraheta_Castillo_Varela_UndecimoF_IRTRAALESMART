@@ -4,471 +4,710 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Guardian IRTRA | Sistema de Seguridad</title>
+    <meta
+        name="description"
+        content="IRTRA ALESMART, sistema automatizado de alerta mediante Arduino."
+    >
+
+    <title>IRTRA ALESMART | Proyecto Final de TICS</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
+    <!-- NAVEGACIÓN -->
     <nav class="navbar">
-        <div class="logo">
-            <span>●</span> GUARDIAN IRTRA
-        </div>
 
-        <div class="nav-links">
-            <a href="#inicio">Inicio</a>
+        <a class="logo" href="#inicio">
+            <span>●</span> IRTRA ALESMART
+        </a>
+
+        <button
+            class="menu-button"
+            id="menu-button"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
+        <div class="nav-links" id="nav-links">
             <a href="#problematica">Problemática</a>
             <a href="#solucion">Solución</a>
             <a href="#funcionamiento">Funcionamiento</a>
+            <a href="#recursos">Recursos</a>
             <a href="#equipo">Equipo</a>
         </div>
+
     </nav>
 
 
-    <!-- HERO -->
-    <header id="inicio" class="hero">
+    <!-- PORTADA -->
+    <header class="hero" id="inicio">
 
         <div class="hero-content">
 
-            <div class="status">
-                <span class="status-dot"></span>
-                SISTEMA DE PROTECCIÓN ACTIVO
-            </div>
+            <p class="eyebrow">
+                <span></span>
+                PROYECTO FINAL DE TICS
+            </p>
 
             <h1>
-                Guardian
-                <span>IRTRA</span>
+                IRTRA
+                <strong>ALESMART</strong>
             </h1>
 
             <p class="hero-subtitle">
-                Sistema inteligente de detección para prevenir
-                el retiro no autorizado de objetos.
+                Sistema automatizado de alerta para la protección
+                de objetos mediante detección de distancia y movimiento.
             </p>
 
             <p class="hero-description">
-                Un proyecto desarrollado mediante Arduino y Tinkercad
-                que combina detección de distancia y movimiento para
-                generar una alerta visual y sonora.
+                Un prototipo educativo desarrollado con Arduino y Tinkercad
+                que combina sensores, una alerta visual y una alarma sonora.
             </p>
 
-            <a href="#funcionamiento" class="main-button">
-                Conocer el sistema →
-            </a>
+            <div class="hero-actions">
+
+                <a class="button primary" href="#funcionamiento">
+                    Conocer el sistema
+                </a>
+
+                <a class="button secondary" href="#recursos">
+                    Ver archivos del proyecto
+                </a>
+
+            </div>
 
         </div>
+
 
         <div class="hero-visual">
 
             <div class="radar">
 
-                <div class="radar-circle circle-1"></div>
-                <div class="radar-circle circle-2"></div>
-                <div class="radar-circle circle-3"></div>
+                <div class="radar-ring ring-one"></div>
+                <div class="radar-ring ring-two"></div>
 
                 <div class="radar-line"></div>
 
                 <div class="radar-center">
-                    <span>60</span>
-                    <small>CM</small>
+                    <strong>60</strong>
+                    <span>CM</span>
                 </div>
 
             </div>
 
-            <div class="object">
-                <div class="object-icon">◈</div>
-                <p>OBJETO<br>PROTEGIDO</p>
-            </div>
+            <p class="protected-object">
+                OBJETO PROTEGIDO
+            </p>
 
         </div>
 
     </header>
 
 
-    <!-- PROBLEMÁTICA -->
-    <section id="problematica" class="section problem-section">
+    <main>
 
-        <div class="section-title">
-            <span>01 / PROBLEMÁTICA</span>
-            <h2>¿Qué problema buscamos solucionar?</h2>
-        </div>
+        <!-- PROBLEMÁTICA -->
+        <section class="section alternate" id="problematica">
 
-        <div class="problem-grid">
+            <div class="section-heading">
 
-            <div class="problem-text">
+                <p>01 / PROBLEMÁTICA</p>
 
-                <p>
-                    En lugares recreativos como el IRTRA existen diferentes
-                    objetos, equipos y recursos que pueden quedar expuestos
-                    al retiro o manipulación no autorizada.
-                </p>
-
-                <p>
-                    Nuestro proyecto propone utilizar un circuito electrónico
-                    capaz de detectar una situación potencialmente sospechosa
-                    y generar una alerta inmediata.
-                </p>
+                <h2>¿Qué situación busca atender?</h2>
 
             </div>
 
-            <div class="warning-card">
 
-                <div class="warning-icon">!</div>
+            <div class="two-columns">
 
-                <div>
-                    <h3>RIESGO DETECTADO</h3>
+                <div class="prose">
+
                     <p>
-                        Un objeto puede ser retirado de su zona de protección
-                        sin que exista una alerta inmediata.
+                        Los parques recreativos utilizan mobiliario,
+                        equipos y otros recursos que deben permanecer
+                        dentro de las áreas autorizadas.
                     </p>
+
+                    <p>
+                        IRTRA ALESMART plantea un escenario preventivo para
+                        demostrar cómo un circuito puede advertir cuando una
+                        persona se aproxima a un objeto protegido y existe
+                        movimiento en la zona vigilada.
+                    </p>
+
+                </div>
+
+
+                <article class="accent-card">
+
+                    <span class="card-symbol">!</span>
+
+                    <div>
+
+                        <h3>Situación de riesgo</h3>
+
+                        <p>
+                            La proximidad y el movimiento ocurren al mismo
+                            tiempo alrededor del objeto protegido.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- SOLUCIÓN -->
+        <section class="section" id="solucion">
+
+            <div class="section-heading centered">
+
+                <p>02 / SOLUCIÓN</p>
+
+                <h2>Una respuesta sencilla y comprobable</h2>
+
+                <span>
+                    El Arduino procesa dos entradas y controla dos salidas
+                    de acuerdo con las reglas programadas.
+                </span>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+                <article class="feature-card">
+
+                    <b>01</b>
+                    <span>↔</span>
+
+                    <h3>Distancia</h3>
+
+                    <p>
+                        El sistema compara la medición con un límite
+                        de 60 centímetros.
+                    </p>
+
+                </article>
+
+
+                <article class="feature-card">
+
+                    <b>02</b>
+                    <span>◉</span>
+
+                    <h3>Movimiento</h3>
+
+                    <p>
+                        Una segunda entrada comprueba si existe
+                        actividad en la zona.
+                    </p>
+
+                </article>
+
+
+                <article class="feature-card">
+
+                    <b>03</b>
+                    <span>●</span>
+
+                    <h3>LED rojo</h3>
+
+                    <p>
+                        Se enciende cuando la distancia es igual
+                        o menor de 60 cm.
+                    </p>
+
+                </article>
+
+
+                <article class="feature-card">
+
+                    <b>04</b>
+                    <span>◖</span>
+
+                    <h3>Piezoeléctrico</h3>
+
+                    <p>
+                        Suena cuando coinciden proximidad
+                        y movimiento.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- FUNCIONAMIENTO -->
+        <section class="section alternate" id="funcionamiento">
+
+            <div class="section-heading">
+
+                <p>03 / FUNCIONAMIENTO</p>
+
+                <h2>Lógica del circuito</h2>
+
+            </div>
+
+
+            <div class="steps">
+
+                <article>
+
+                    <b>01</b>
+
+                    <div>
+
+                        <h3>Estado normal</h3>
+
+                        <p>
+                            Si la distancia es mayor de 60 cm,
+                            el LED y el piezoeléctrico permanecen apagados.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article>
+
+                    <b>02</b>
+
+                    <div>
+
+                        <h3>Advertencia visual</h3>
+
+                        <p>
+                            Si la distancia es de 60 cm o menos,
+                            el Arduino enciende el LED rojo.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article>
+
+                    <b>03</b>
+
+                    <div>
+
+                        <h3>Alarma completa</h3>
+
+                        <p>
+                            Si además se detecta movimiento,
+                            el piezoeléctrico también se activa.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- SIMULADOR -->
+            <div class="monitor">
+
+                <div class="monitor-header">
+
+                    <span>ALESMART // SIMULADOR</span>
+
+                    <span id="system-time">
+                        00:00:00
+                    </span>
+
+                </div>
+
+
+                <div class="monitor-body">
+
+                    <div class="distance-panel">
+
+                        <small>DISTANCIA SIMULADA</small>
+
+                        <p>
+                            <strong id="distance">75</strong>
+                            CM
+                        </p>
+
+                        <div class="distance-track">
+                            <span id="distance-fill"></span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="status-panel">
+
+                        <p>
+
+                            <i id="distance-light"></i>
+
+                            <span>
+
+                                <b>DISTANCIA</b>
+
+                                <small id="distance-status">
+                                    ZONA SEGURA
+                                </small>
+
+                            </span>
+
+                        </p>
+
+
+                        <p>
+
+                            <i id="motion-light"></i>
+
+                            <span>
+
+                                <b>MOVIMIENTO</b>
+
+                                <small id="motion-status">
+                                    NO DETECTADO
+                                </small>
+
+                            </span>
+
+                        </p>
+
+
+                        <p>
+
+                            <i id="alarm-light"></i>
+
+                            <span>
+
+                                <b>ALARMA</b>
+
+                                <small id="alarm-status">
+                                    INACTIVA
+                                </small>
+
+                            </span>
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="monitor-controls">
+
+                    <label for="distance-slider">
+                        Distancia
+                    </label>
+
+                    <input
+                        id="distance-slider"
+                        type="range"
+                        min="10"
+                        max="100"
+                        value="75"
+                    >
+
+                    <button id="motion-button" type="button">
+                        Simular movimiento
+                    </button>
+
                 </div>
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- SOLUCIÓN -->
-    <section id="solucion" class="section solution-section">
+        <!-- ARCHIVOS DEL PROYECTO -->
+        <section class="section resources-section" id="recursos">
 
-        <div class="section-title center">
-            <span>02 / NUESTRA SOLUCIÓN</span>
-            <h2>Un sistema de protección inteligente</h2>
+            <div class="section-heading centered">
 
-            <p>
-                Guardian IRTRA utiliza diferentes componentes electrónicos
-                para analizar lo que ocurre alrededor de un objeto protegido.
+                <p>04 / ARCHIVOS DEL PROYECTO</p>
+
+                <h2>
+                    Investigación, demostración e infografía
+                </h2>
+
+                <span>
+                    Consulta los tres productos que documentan y muestran
+                    el funcionamiento de IRTRA ALESMART.
+                </span>
+
+            </div>
+
+
+            <div class="resource-grid">
+
+                <!-- DOCUMENTO WORD -->
+                <article class="resource-card document-card">
+
+                    <p class="resource-label">
+                        DOCUMENTO WORD
+                    </p>
+
+                    <div class="file-icon">
+                        W
+                    </div>
+
+                    <h3>Investigación formal</h3>
+
+                    <p>
+                        Documento completo del proyecto, sus fundamentos,
+                        funcionamiento, pruebas y referencias.
+                    </p>
+
+                    <a
+                        class="button primary"
+                        href="ALESMART.docx"
+                        download
+                    >
+                        Descargar ALESMART.docx
+                    </a>
+
+                </article>
+
+
+                <!-- VIDEO -->
+                <article class="resource-card video-card">
+
+                    <p class="resource-label">
+                        VIDEO DEMOSTRATIVO
+                    </p>
+
+                    <h3>Circuito en funcionamiento</h3>
+
+                    <video controls preload="metadata">
+
+                        <source
+                            src="circuito-alesmart.mp4"
+                            type="video/mp4"
+                        >
+
+                        Tu navegador no puede reproducir este video.
+
+                    </video>
+
+                    <a
+                        class="text-link"
+                        href="circuito-alesmart.mp4"
+                        download
+                    >
+                        Descargar video ↓
+                    </a>
+
+                </article>
+
+
+                <!-- INFOGRAFÍA -->
+                <article class="resource-card infographic-card">
+
+                    <p class="resource-label">
+                        INFOGRAFÍA VISUAL
+                    </p>
+
+                    <h3>Resumen del proyecto</h3>
+
+                    <a
+                        href="infografia-alesmart.png"
+                        target="_blank"
+                        rel="noopener"
+                    >
+
+                        <img
+                            src="infografia-alesmart.png"
+                            alt="Infografía del proyecto IRTRA ALESMART"
+                        >
+
+                    </a>
+
+                    <a
+                        class="text-link"
+                        href="infografia-alesmart.png"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        Ver en tamaño completo ↗
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- TECNOLOGÍA -->
+        <section class="section alternate" id="tecnologia">
+
+            <div class="section-heading">
+
+                <p>05 / TECNOLOGÍA</p>
+
+                <h2>Herramientas y componentes</h2>
+
+            </div>
+
+
+            <div class="technology-grid">
+
+                <article>
+
+                    <h3>Arduino Uno R3</h3>
+
+                    <p>
+                        Unidad de control que recibe las entradas
+                        y activa las salidas.
+                    </p>
+
+                </article>
+
+
+                <article>
+
+                    <h3>Tinkercad Circuits</h3>
+
+                    <p>
+                        Plataforma utilizada para construir,
+                        programar y probar el circuito.
+                    </p>
+
+                </article>
+
+
+                <article>
+
+                    <h3>Sensor de distancia</h3>
+
+                    <p>
+                        Mide la proximidad con respecto
+                        al umbral establecido.
+                    </p>
+
+                </article>
+
+
+                <article>
+
+                    <h3>Sensor de movimiento</h3>
+
+                    <p>
+                        Detecta actividad dentro
+                        del área observada.
+                    </p>
+
+                </article>
+
+
+                <article>
+
+                    <h3>LED rojo</h3>
+
+                    <p>
+                        Genera la advertencia visual cuando
+                        se alcanza el rango de alerta.
+                    </p>
+
+                </article>
+
+
+                <article>
+
+                    <h3>Piezoeléctrico</h3>
+
+                    <p>
+                        Produce la alarma sonora cuando
+                        también existe movimiento.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- EQUIPO -->
+        <section class="section" id="equipo">
+
+            <div class="section-heading centered">
+
+                <p>06 / EQUIPO</p>
+
+                <h2>Integrantes del proyecto</h2>
+
+            </div>
+
+
+            <div class="team-grid">
+
+                <article>
+
+                    <b>01</b>
+
+                    <h3>Gabriela Castillo</h3>
+
+                    <p>Integrante</p>
+
+                </article>
+
+
+                <article>
+
+                    <b>02</b>
+
+                    <h3>Juan Pablo Varela</h3>
+
+                    <p>Integrante</p>
+
+                </article>
+
+
+                <article>
+
+                    <b>03</b>
+
+                    <h3>Faustino Iraheta</h3>
+
+                    <p>Integrante</p>
+
+                </article>
+
+            </div>
+
+
+            <p class="academic-info">
+                COLEGIO CAPOUILLIEZ · UNDÉCIMO F ·
+                PROYECTO FINAL DE TICS
             </p>
-        </div>
 
-        <div class="features">
+        </section>
 
-            <div class="feature-card">
-                <div class="feature-number">01</div>
-                <div class="feature-icon">📏</div>
-                <h3>Distancia</h3>
-                <p>
-                    El sistema establece una zona de protección de
-                    <strong>60 centímetros</strong>.
-                </p>
-            </div>
+    </main>
 
-            <div class="feature-card">
-                <div class="feature-number">02</div>
-                <div class="feature-icon">◉</div>
-                <h3>Movimiento</h3>
-                <p>
-                    Cuando se detecta movimiento dentro de la zona,
-                    el sistema activa la alarma.
-                </p>
-            </div>
 
-            <div class="feature-card">
-                <div class="feature-number">03</div>
-                <div class="feature-icon">🔴</div>
-                <h3>Alerta visual</h3>
-                <p>
-                    Una luz LED roja indica que existe una situación
-                    que requiere atención.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-number">04</div>
-                <div class="feature-icon">🔊</div>
-                <h3>Alarma sonora</h3>
-                <p>
-                    El piezoeléctrico produce un sonido cuando se
-                    detecta movimiento dentro del rango establecido.
-                </p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- FUNCIONAMIENTO -->
-    <section id="funcionamiento" class="section functioning-section">
-
-        <div class="section-title">
-            <span>03 / FUNCIONAMIENTO</span>
-            <h2>¿Cómo funciona?</h2>
-        </div>
-
-        <div class="system">
-
-            <div class="system-step">
-                <div class="step-number">01</div>
-
-                <div class="step-content">
-                    <h3>Zona de protección</h3>
-                    <p>
-                        El circuito establece una distancia máxima
-                        de 60 cm alrededor del objeto protegido.
-                    </p>
-                </div>
-            </div>
-
-            <div class="connector"></div>
-
-            <div class="system-step">
-                <div class="step-number">02</div>
-
-                <div class="step-content">
-                    <h3>Detección de proximidad</h3>
-                    <p>
-                        Cuando una persona u objeto entra en el rango
-                        de 60 cm o menos, se enciende el LED rojo.
-                    </p>
-                </div>
-            </div>
-
-            <div class="connector"></div>
-
-            <div class="system-step">
-                <div class="step-number">03</div>
-
-                <div class="step-content">
-                    <h3>Detección de movimiento</h3>
-                    <p>
-                        Si además se detecta movimiento dentro de esa
-                        zona, el sistema interpreta la situación como
-                        una posible manipulación.
-                    </p>
-                </div>
-            </div>
-
-            <div class="connector"></div>
-
-            <div class="system-step alert-step">
-                <div class="step-number">04</div>
-
-                <div class="step-content">
-                    <h3>Alarma activada</h3>
-                    <p>
-                        El piezoeléctrico comienza a sonar para generar
-                        una alerta sonora y llamar la atención sobre
-                        la situación.
-                    </p>
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- SIMULADOR -->
-    <section class="section simulator-section">
-
-        <div class="section-title center">
-            <span>04 / SIMULACIÓN</span>
-            <h2>Panel de monitoreo</h2>
-
-            <p>
-                Esta representación muestra de manera visual las condiciones
-                en las que nuestro sistema genera una alerta.
-            </p>
-        </div>
-
-        <div class="monitor">
-
-            <div class="monitor-header">
-                <span>GUARDIAN IRTRA // MONITOR</span>
-                <span id="system-time">00:00:00</span>
-            </div>
-
-            <div class="monitor-content">
-
-                <div class="monitor-distance">
-
-                    <span>DISTANCIA DETECTADA</span>
-
-                    <div class="distance-value">
-                        <span id="distance">75</span>
-                        <small>CM</small>
-                    </div>
-
-                    <div class="distance-bar">
-                        <div id="distance-fill"></div>
-                    </div>
-
-                </div>
-
-                <div class="monitor-status">
-
-                    <div class="status-item">
-                        <span class="indicator green" id="distance-light"></span>
-                        <div>
-                            <strong>DISTANCIA</strong>
-                            <small id="distance-status">ZONA SEGURA</small>
-                        </div>
-                    </div>
-
-                    <div class="status-item">
-                        <span class="indicator green" id="motion-light"></span>
-                        <div>
-                            <strong>MOVIMIENTO</strong>
-                            <small id="motion-status">NO DETECTADO</small>
-                        </div>
-                    </div>
-
-                    <div class="status-item">
-                        <span class="indicator green" id="alarm-light"></span>
-                        <div>
-                            <strong>ALARMA</strong>
-                            <small id="alarm-status">INACTIVA</small>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="monitor-controls">
-
-                <label for="distance-slider">
-                    Simular distancia
-                </label>
-
-                <input
-                    type="range"
-                    id="distance-slider"
-                    min="10"
-                    max="100"
-                    value="75"
-                >
-
-                <button id="motion-button">
-                    Simular movimiento
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- TECNOLOGÍA -->
-    <section class="section technology-section">
-
-        <div class="section-title">
-            <span>05 / TECNOLOGÍA</span>
-            <h2>¿Con qué fue desarrollado?</h2>
-        </div>
-
-        <div class="technology-grid">
-
-            <div class="technology-card">
-                <h3>Arduino</h3>
-                <p>
-                    Microcontrolador encargado de procesar las señales
-                    recibidas por los sensores y controlar las alertas.
-                </p>
-            </div>
-
-            <div class="technology-card">
-                <h3>Tinkercad</h3>
-                <p>
-                    Plataforma utilizada para construir y simular
-                    nuestro circuito electrónico antes de su implementación.
-                </p>
-            </div>
-
-            <div class="technology-card">
-                <h3>Sensor de distancia</h3>
-                <p>
-                    Permite establecer y controlar el rango de protección
-                    de 60 centímetros.
-                </p>
-            </div>
-
-            <div class="technology-card">
-                <h3>Sensor de movimiento</h3>
-                <p>
-                    Permite detectar movimiento dentro del área
-                    previamente establecida.
-                </p>
-            </div>
-
-            <div class="technology-card">
-                <h3>LED rojo</h3>
-                <p>
-                    Funciona como señal visual cuando una persona u objeto
-                    entra en la zona de alerta.
-                </p>
-            </div>
-
-            <div class="technology-card">
-                <h3>Piezoeléctrico</h3>
-                <p>
-                    Genera la alerta sonora cuando se detecta movimiento
-                    dentro del rango de protección.
-                </p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- EQUIPO -->
-    <section id="equipo" class="section team-section">
-
-        <div class="section-title center">
-            <span>06 / NUESTRO EQUIPO</span>
-            <h2>Integrantes del proyecto</h2>
-        </div>
-
-        <div class="team">
-
-            <div class="member">
-                <div class="member-number">01</div>
-                <h3>Faustino Iraheta</h3>
-                <p>Integrante</p>
-            </div>
-
-            <div class="member">
-                <div class="member-number">02</div>
-                <h3>Gabriela Castillo</h3>
-                <p>Integrante</p>
-            </div>
-
-            <div class="member">
-                <div class="member-number">03</div>
-                <h3>Juan Pablo Varela</h3>
-                <p>Integrante</p>
-            </div>
-
-        </div>
-
-        <div class="academic-info">
-            <span>UNDÉCIMO F</span>
-            <span>•</span>
-            <span>PROYECTO FINAL TICS</span>
-        </div>
-
-    </section>
-
-
-    <!-- FOOTER -->
+    <!-- PIE DE PÁGINA -->
     <footer>
 
-        <div class="footer-logo">
-            GUARDIAN <span>IRTRA</span>
-        </div>
+        <strong>
+            IRTRA <span>ALESMART</span>
+        </strong>
 
         <p>
-            Proyecto Final de TICS · Undécimo F
-        </p>
-
-        <p class="copyright">
-            Sistema desarrollado con fines educativos.
+            Prototipo desarrollado con fines educativos.
         </p>
 
     </footer>
